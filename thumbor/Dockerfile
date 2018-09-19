@@ -38,3 +38,4 @@ ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["thumbor"]
 
 EXPOSE 8000
+EXPOSE 8001
