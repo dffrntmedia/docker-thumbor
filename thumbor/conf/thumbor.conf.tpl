@@ -152,7 +152,9 @@ ENGINE_THREADPOOL_SIZE = {{ ENGINE_THREADPOOL_SIZE | default(0) }}
 ## The metrics backend thumbor should use to measure internal actions. This must
 ## be the full name of a python module (python must be able to import it)
 ## Defaults to: 'thumbor.metrics.logger_metrics'
-METRICS = '{{ METRICS | default('thumbor.metrics.logger_metrics') }}'
+METRICS = '{{ METRICS | default('tc_prometheus.metrics.prometheus_metrics') }}'
+
+PROMETHEUS_SCRAPE_PORT = 8001
 
 ## The loader thumbor should use to load the original image. This must be the
 ## full name of a python module (python must be able to import it)
