@@ -154,6 +154,10 @@ ENGINE_THREADPOOL_SIZE = {{ ENGINE_THREADPOOL_SIZE | default(0) }}
 ## Defaults to: 'thumbor.metrics.logger_metrics'
 METRICS = '{{ METRICS | default('thumbor.metrics.logger_metrics') }}'
 
+## Prometheus client port
+## Defaults to: 8889
+PROMETHEUS_SCRAPE_PORT = '{{ PROMETHEUS_SCRAPE_PORT | default(8889) }}'
+
 ## The loader thumbor should use to load the original image. This must be the
 ## full name of a python module (python must be able to import it)
 ## Defaults to: thumbor.loaders.http_loader
