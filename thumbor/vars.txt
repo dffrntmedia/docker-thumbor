@@ -18,6 +18,7 @@ ALLOW_ANIMATED_GIFS
 USE_GIFSICLE_ENGINE
 USE_BLACKLIST
 LOADER
+PROMETHEUS_SCRAPE_PORT
 STORAGE
 STORAGE_BUCKET
 AWS_ACCESS_KEY -> Note: old config to use with thumbor_aws storage. Not for tc_aws
@@ -111,6 +112,7 @@ SVG_DPI -> 150
 SEND_IF_MODIFIED_LAST_MODIFIED_HEADERS -> False
 ENGINE_THREADPOOL_SIZE -> 0
 METRICS -> thumbor.metrics.logger_metrics
+PROMETHEUS_SCRAPE_PORT -> 8001
 GIF_ENGINE -> thumbor.engines.gif
 URL_SIGNER -> 'libthumbor.url_signers.base64_hmac_sha1'
 ENABLE_ETAGS -> True
