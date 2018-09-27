@@ -15,7 +15,7 @@ tc-shortener==0.2.2
 raven==6.7.0
 thumbor-memcached==5.1.0
 tc-mongodb==5.1.0
-tc-redis==1.0.1
+git+https://github.com/dffrntmedia/tc-redis-cluster.git
 thumbor-cloud-storage==3.0.0
 pgmagick==0.7.4
 graphicsmagick-engine==0.1.1

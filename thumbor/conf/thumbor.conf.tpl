@@ -409,15 +409,7 @@ MONGO_STORAGE_SERVER_COLLECTION = '{{ MONGO_STORAGE_SERVER_COLLECTION | default(
 
 ## Redis storage server host
 ## Defaults to: localhost
-REDIS_STORAGE_SERVER_HOST = '{{ REDIS_STORAGE_SERVER_HOST | default('redis') }}'
-
-## Redis storage server port
-## Defaults to: 6379
-REDIS_STORAGE_SERVER_PORT = {{ REDIS_STORAGE_SERVER_PORT | default(6379) }}
-
-## Redis storage database index
-## Defaults to: 0
-REDIS_STORAGE_SERVER_DB = {{ REDIS_STORAGE_SERVER_DB | default(0) }}
+REDIS_STORAGE_SERVER_STARTUP_NODES = '{{ REDIS_STORAGE_SERVER_STARTUP_NODES | default('redis:6379') }}'
 
 ## Redis storage server password
 ## Defaults to: None
@@ -434,15 +426,7 @@ REDIS_STORAGE_IGNORE_ERRORS = {{ REDIS_STORAGE_IGNORE_ERRORS | default(False) }}
 
 ## Redis storage server host
 ## Defaults to: localhost
-REDIS_RESULT_STORAGE_SERVER_HOST = '{{ REDIS_RESULT_STORAGE_SERVER_HOST | default('redis') }}'
-
-## Redis storage server port
-## Defaults to: 6379
-REDIS_RESULT_STORAGE_SERVER_PORT = {{ REDIS_RESULT_STORAGE_SERVER_PORT | default(6379) }}
-
-## Redis storage database index
-## Defaults to: 0
-REDIS_RESULT_STORAGE_SERVER_DB = {{ REDIS_RESULT_STORAGE_SERVER_DB | default(0) }}
+REDIS_RESULT_STORAGE_SERVER_STARTUP_NODES = '{{ REDIS_RESULT_STORAGE_SERVER_STARTUP_NODES | default('redis:6379') }}'
 
 ## Redis storage server password
 ## Defaults to: None
