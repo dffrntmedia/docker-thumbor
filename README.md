@@ -155,3 +155,14 @@ Env vars and default value:
     TC_AWS_ENABLE_HTTP_LOADER=False
     TC_AWS_ALLOWED_BUCKETS=False
     TC_AWS_STORE_METADATA=False
+
+
+# dffrntlab part
+
+## build and deploy docker image 
+
+```
+cd thumbor
+docker build -t dffrntlab/thumbor[:TAG] .
+docker push dffrntlab/thumbor[:TAG]
+```
