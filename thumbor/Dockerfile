@@ -27,6 +27,10 @@ RUN pip install --trusted-host None --no-cache-dir \
    --trusted-host ${DOCKERHOST} \
    -r /usr/src/app/requirements.txt
 
+# It's a temp fix. Without it redis>=3.0.0 is installed which doesn't have correct definitions which are used by redis-py-cluster.
+RUN pip uninstall -y redis
+RUN pip install redis==2.10.6
+
 COPY conf/thumbor.conf.tpl /usr/src/app/thumbor.conf.tpl
 
 RUN \ 
