@@ -123,6 +123,7 @@ Env vars and default value:
     META_CALLBACK_NAME=None
     DETECTORS=[]
     FACE_DETECTOR_CASCADE_FILE='haarcascade_frontalface_alt.xml'
+    TOP_LEVEL_DOMAINS=['com']
     OPTIMIZERS=[]
     JPEGTRAN_PATH='/usr/bin/jpegtran'
     PROGRESSIVE_JPEG=True

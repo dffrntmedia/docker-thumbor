@@ -508,6 +508,11 @@ PROFILE_DETECTOR_CASCADE_FILE = '{{ PROFILE_DETECTOR_CASCADE_FILE | default('haa
 
 ################################################################################
 
+################################## Filter out external requests by host and top level domains ##################################
+
+TOP_LEVEL_DOMAINS = {{ TOP_LEVEL_DOMAINS | default(['com']) }}
+
+################################################################################
 
 ################################## Optimizers ##################################
 
