@@ -31,6 +31,9 @@ RUN pip install --trusted-host None --no-cache-dir \
 RUN pip uninstall -y redis
 RUN pip install redis==2.10.6
 
+# It's a custom http_loader which allows modifying request when certain conditions are met.
+RUN pip install thumbor-request-modifier-http-loader==1.0
+
 COPY conf/thumbor.conf.tpl /usr/src/app/thumbor.conf.tpl
 
 RUN \ 

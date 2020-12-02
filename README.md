@@ -156,13 +156,72 @@ Env vars and default value:
     TC_AWS_ALLOWED_BUCKETS=False
     TC_AWS_STORE_METADATA=False
 
+---
 
-# dffrntlab part
+# DffrntLab
 
-## build and deploy docker image 
+We mainly touched only `thumbor/` directory content.
+
+## Build and deploy docker image
 
 ```
 cd thumbor
 docker build -t dffrntlab/thumbor[:TAG] .
 docker push dffrntlab/thumbor[:TAG]
 ```
+
+Use `make` (`make help` for help) to build, tag, deploy images.
+
+## Run container
+
+### With `thumbor-request-modifier-http-loader`
+
+E.g.:
+```
+docker run -p "8000:8000" -p "8001:8001" \
+    -e LOG_LEVEL="DEBUG" \
+    -e LOADER="thumbor_request_modifier_http_loader.loader" \
+    -e REQUEST_MODIFIER_HTTP_LOADER_MODIFICATIONS="[['mod_type', 'set_header', 'mod_header_name', 'Authorization', 'mod_header_value', 'YourAccessToken', 'cond_type', 'url_contains', 'cond_url_part', 'schapi.schaapcitroen.nl']]" \
+    -e HTTP_LOADER_FORWARD_HEADERS_WHITELIST="['Authorization']" \
+    dffrntlab/thumbor:1.1.0
+```
+
+### With primary color detector
+
+```
+docker run -p "8000:8000" -p "8001:8001" \
+    -e DETECTORS="['thumbor.detectors.primary_color_detector']" \
+    dffrntlab/thumbor:1.1.0
+```
+
+## Changes
+
+### thumbor-request-modifier-http-loader
+
+It's a custom http_loader which allows modifying request when certain conditions are met.
+
+Look [here](https://github.com/dffrntmedia/thumbor-request-modifier-http-loader) for more details.
+
+### New properties in config `thumbor/conf/thumbor.conf.tpl`:
+
+```conf
+## Indicates which request headers thumbor should forward
+## Defaults to: []
+HTTP_LOADER_FORWARD_HEADERS_WHITELIST = {{ HTTP_LOADER_FORWARD_HEADERS_WHITELIST | default([]) }}
+
+## Indicates weather thumbor should forward all request headers
+## Defaults to: False
+HTTP_LOADER_FORWARD_ALL_HEADERS = {{ HTTP_LOADER_FORWARD_ALL_HEADERS | default(False) }}
+
+## What modifications should be performed on request
+## Defaults to: []
+REQUEST_MODIFIER_HTTP_LOADER_MODIFICATIONS = {{ REQUEST_MODIFIER_HTTP_LOADER_MODIFICATIONS | default([]) }}
+```
+
+### Prometheus related changes
+
+TODO: Describe
+
+### Redis related changes
+
+TODO: Describe
