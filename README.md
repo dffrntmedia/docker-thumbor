@@ -170,6 +170,8 @@ docker build -t dffrntlab/thumbor[:TAG] .
 docker push dffrntlab/thumbor[:TAG]
 ```
 
+Use `make` (`make help` for help) to build, tag, deploy images.
+
 ## Run container
 
 ### With `thumbor-request-modifier-http-loader`
