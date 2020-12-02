@@ -181,7 +181,7 @@ E.g.:
 docker run -p "8000:8000" -p "8001:8001" \
     -e LOG_LEVEL="DEBUG" \
     -e LOADER="thumbor_request_modifier_http_loader.loader" \
-    -e REQUEST_MODIFIER_HTTP_LOADER_MODIFICATIONS="[['mod_type', 'set_header', 'mod_header_name', 'Authorization', 'mod_header_value', 'YourAccessToken', 'cond_type', 'url_contains', 'cond_url_part', 'schapi.schaapcitroen.nl']]" \
+    -e REQUEST_MODIFIER_HTTP_LOADER_MODIFICATIONS="[['mod_type', 'set_header', 'mod_header_name', 'Authorization', 'mod_header_value', 'YourAccessToken', 'cond_type', 'url_contains', 'cond_url_part', 'some-protected-images-api.com']]" \
     -e HTTP_LOADER_FORWARD_HEADERS_WHITELIST="['Authorization']" \
     dffrntlab/thumbor:1.1.0
 ```
