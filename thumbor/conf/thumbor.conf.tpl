@@ -674,4 +674,6 @@ TC_AWS_ALLOWED_BUCKETS = {{ TC_AWS_ALLOWED_BUCKETS | default(False) }} # List of
 TC_AWS_STORE_METADATA = {{ TC_AWS_STORE_METADATA | default(False) }} # Store result with metadata (for instance content-type)
 ################################################################################
 
+## What modifications should be performed on request
+## Defaults to: []
 REQUEST_MODIFIER_HTTP_LOADER_MODIFICATIONS = {{ REQUEST_MODIFIER_HTTP_LOADER_MODIFICATIONS | default([]) }}

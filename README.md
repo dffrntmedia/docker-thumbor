@@ -160,6 +160,8 @@ Env vars and default value:
 
 # DffrntLab
 
+We mainly touched only `thumbor/` directory content.
+
 ## Build and deploy docker image
 
 ```
@@ -197,3 +199,27 @@ docker run -p "8000:8000" -p "8001:8001" \
 It's a custom http_loader which allows modifying request when certain conditions are met.
 
 Look [here](https://github.com/dffrntmedia/thumbor-request-modifier-http-loader) for more details.
+
+### New properties in config `thumbor/conf/thumbor.conf.tpl`:
+
+```conf
+## Indicates which request headers thumbor should forward
+## Defaults to: []
+HTTP_LOADER_FORWARD_HEADERS_WHITELIST = {{ HTTP_LOADER_FORWARD_HEADERS_WHITELIST | default([]) }}
+
+## Indicates weather thumbor should forward all request headers
+## Defaults to: False
+HTTP_LOADER_FORWARD_ALL_HEADERS = {{ HTTP_LOADER_FORWARD_ALL_HEADERS | default(False) }}
+
+## What modifications should be performed on request
+## Defaults to: []
+REQUEST_MODIFIER_HTTP_LOADER_MODIFICATIONS = {{ REQUEST_MODIFIER_HTTP_LOADER_MODIFICATIONS | default([]) }}
+```
+
+### Prometheus related changes
+
+TODO: Describe
+
+### Redis related changes
+
+TODO: Describe
