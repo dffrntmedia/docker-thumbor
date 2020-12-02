@@ -286,6 +286,14 @@ HTTP_LOADER_MAX_CLIENTS = {{ HTTP_LOADER_MAX_CLIENTS | default(10) }}
 ## Defaults to: False
 HTTP_LOADER_FORWARD_USER_AGENT = {{ HTTP_LOADER_FORWARD_USER_AGENT | default(False) }}
 
+## Indicates which request headers thumbor should forward
+## Defaults to: []
+HTTP_LOADER_FORWARD_HEADERS_WHITELIST = {{ HTTP_LOADER_FORWARD_HEADERS_WHITELIST | default([]) }}
+
+## Indicates weather thumbor should forward all request headers
+## Defaults to: False
+HTTP_LOADER_FORWARD_ALL_HEADERS = {{ HTTP_LOADER_FORWARD_ALL_HEADERS | default(False) }}
+
 ## Default user agent for thumbor http loader requests
 ## Defaults to: Thumbor/6.3.0
 HTTP_LOADER_DEFAULT_USER_AGENT = '{{ HTTP_LOADER_DEFAULT_USER_AGENT | default('Thumbor/6.3.0') }}'
@@ -666,3 +674,4 @@ TC_AWS_ALLOWED_BUCKETS = {{ TC_AWS_ALLOWED_BUCKETS | default(False) }} # List of
 TC_AWS_STORE_METADATA = {{ TC_AWS_STORE_METADATA | default(False) }} # Store result with metadata (for instance content-type)
 ################################################################################
 
+REQUEST_MODIFIER_HTTP_LOADER_MODIFICATIONS = {{ REQUEST_MODIFIER_HTTP_LOADER_MODIFICATIONS | default([]) }}
