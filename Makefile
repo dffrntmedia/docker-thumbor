@@ -1,29 +1,22 @@
-.PHONY: build
-## build: builds thumbor docker image
-build:
+check_version_provided:
 ifndef VERSION
 	$(error Provide VERSION as env var)
 endif
-	@cd thumbor
-	 docker build -t dffrntlab/thumbor:${VERSION} .
+
+.PHONY: build
+## build: builds thumbor docker image
+build: check_version_provided
+	@docker build -t dffrntlab/thumbor:${VERSION} ./thumbor
 
 .PHONY: tag
 ## tag: tags current state
-tag:
-ifndef VERSION
-	$(error Provide VERSION as env var)
-endif
+tag: check_version_provided
 	@git tag -a "${VERSION}" -m "${VERSION}"
 	 git push origin --tags
 
 .PHONY: deploy
 ## deploy: deploys thumbor docker image to the Docker Hub
-deploy:
-ifndef VERSION
-	$(error Provide VERSION as env var)
-endif
-	build
-	tag
+deploy: check_version_provided build tag
 	@docker push dffrntlab/thumbor:${VERSION}
 
 .PHONY: help
